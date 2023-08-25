@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/General_Handouts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/XCS229-Handouts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/XCS229I" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/XCS229i-PS1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/XCS229i-PS2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/XCS229i-PS3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/XCS229i-PS4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/XCS229i-PS5" vcs="Git" />
+  </component>
+</project>
