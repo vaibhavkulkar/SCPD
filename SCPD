@@ -1,0 +1,33 @@
+def _sigma(x, y, mu_0, mu_1):
+          sigma = np.zeros((mu_0.shape[0], mu_0.shape[0]))
+          for x_i, y_i in zip(x, y):
+            if y_i == 0:
+                mu = mu_0
+            else:
+                mu = mu_1
+            x_i.shape = (len(x_i), 1)
+            sigma += (x_i - mu) @ (x_i - mu).transpose()
+          return sigma / len(y)
+
+        def _construct_theta(phi, mu_0, mu_1, sigma):
+          inverse_sigma = np.linalg.inv(sigma)
+          theta = (mu_1 - mu_0) @ inverse_sigma
+          theta_0 = 0.5 * (mu_0 @ inverse_sigma @ mu_0 - mu_1 @ inverse_sigma @ mu_1) - np.log((1 - phi) / phi)
+          return np.append(theta_0, theta)
+
+        phi = sum(y == 1) / len(y)
+        mu_0 = ((y == 0) @ x) / sum(y == 0)
+        mu_1 = ((y == 1) @ x) / sum(y == 1)
+        sigma = _sigma(x, y, mu_0, mu_1)
+        self.theta = _construct_theta(phi, mu_0, mu_1, sigma)
+
+             \frac{\partial\log g(\theta^T x^{(i)})}{\partial\theta_k} &= \\
+     \frac{\partial\log (1/(1 + \exp(-\theta^T x^{(i)})))}{\partial\theta_k} &= \\
+     (1 + \exp(-\theta^T x^{(i)})) \\
+
+
+     \frac{\partial\log(1- g(\theta^T x^{(i)}))}{\partial\theta_k} &= \\
+     \frac{\partial\log (1- 1/(1 + \exp(-\theta^T x^{(i)}))))}{\partial\theta_k} &= \\
+     \frac{\partial\log (1- 1/(1 + \exp(-\theta^T x^{(i)}))))}{\partial\theta_k} &= \\
+      \frac{\partial\log (\exp(-\theta^T x^{(i)})/(1 + \exp(-\theta^T x^{(i)}))))}{\partial\theta_k} &= \\
+      \frac{(1 + \exp(-\theta^T x^{(i)}))}{\exp(-\theta^T x^{(i)})} \\
