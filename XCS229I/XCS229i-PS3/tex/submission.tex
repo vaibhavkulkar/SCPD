@@ -1,0 +1,232 @@
+% This contents of this file will be inserted into the _Solutions version of the
+% output tex document.  Here's an example:
+
+% If assignment with subquestion (1.a) requires a written response, you will
+% find the following flag within this document: <SCPD_SUBMISSION_TAG>_1a
+% In this example, you would insert the LaTeX for your solution to (1.a) between
+% the <SCPD_SUBMISSION_TAG>_1a flags.  If you also constrain your answer between the
+% START_CODE_HERE and END_CODE_HERE flags, your LaTeX will be styled as a
+% solution within the final document.
+
+% Please do not use the '<SCPD_SUBMISSION_TAG>' character anywhere within your code.  As expected,
+% that will confuse the regular expressions we use to identify your solution.
+\def\assignmentnum{3 }
+\def\assignmenttitle{XCS229i Problem Set \assignmentnum}
+\input{macros}
+\begin{document}
+\pagestyle{myheadings} \markboth{}{\assignmenttitle}
+
+% <SCPD_SUBMISSION_TAG>_entire_submission
+
+This handout includes space for every question that requires a written response.
+Please feel free to use it to handwrite your solutions (legibly, please).  If
+you choose to typeset your solutions, the |README.md| for this assignment includes
+instructions to regenerate this handout with your typeset \LaTeX{} solutions.
+\ruleskip
+
+\LARGE
+1.a
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1a
+  % ### START CODE HERE ###
+  As given in the problem set any kernel to be necessarily a kernel it should be symmetric and positive semidefinte.\\ 
+  For $K(x,z) = K_1(x,z) + K_2(x,z) $ \\ \\
+  Lets evalute symmetric nature for K: \\
+  It is given in the problem set that $K_1$ and $K_2$ are valid kernels. \\
+  The kernel matrix corresponding to $K(x,z) $ is sum of two valid kernel matrices $K_1$ and $K_2$. \\ \\ 
+  So $K(x,z)$ is Symmetric\\
+  
+  PSD: \\
+  $z^TKz$ \\
+  $ = z^T(K_1+K_2)z$ \\
+  $ = z^TK_1z + z^TK_2z$ \\
+  $\geq 0$  Note that, $ z^TK_1z \geq 0$ and $z^TK_2z \geq 0$ as they are valid kernels \\ \\
+  
+ Since  $K(x,z) = K_1(x,z) + K_2(x,z) $ is Symmetric and PSD it is necessarily a kernel
+  
+  % ### END CODE HERE ###
+% <SCPD_SUBMISSION_TAG>_1a
+\clearpage
+
+\LARGE
+1.b
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1b
+  % ### START CODE HERE ###
+  As given in the problem set any kernel to be necessarily a kernel it should be symmetric and positive semidefinte.\\ 
+  For $K(x,z) = K_1(x,z) - K_2(x,z) $ \\ \\
+  Lets evalute symmetric nature for K: \\
+  It is given in the problem set that $K_1$ and $K_2$ are valid kernels. \\
+  The kernel matrix corresponding to $K(x,z) $ is difference of two valid kernel matrices $K_1$ and $K_2$. \\ \\ 
+  So $K(x,z)$ is Symmetric\\
+  
+  PSD: \\
+  $z^TKz$ \\
+  $ = z^T(K_1-K_2)z$ \\
+  $ = z^TK_1z - z^TK_2z$ \\
+  $\geq 0$  This is true only for cases when $ z^TK_1z > z^TK_2z$ \\ \\
+  
+ Since  $K(x,z) = K_1(x,z) - K_2(x,z) $ is Symmetric but not PSD it is not necessarily a kernel
+
+
+  % ### END CODE HERE ###
+% <SCPD_SUBMISSION_TAG>_1b
+\clearpage
+
+\LARGE
+1.c
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1c
+  % ### START CODE HERE ###
+  As given in the problem set any kernel to be necessarily a kernel it should be symmetric and positive semidefinte.\\ 
+  For $K(x,z) = aK_1(x,z) $ \\ \\
+  Lets evalute symmetric nature for K: \\
+  It is given in the problem set that $K_1$ is valid kernels. \\
+  It is also given in the problem set that a is scalar. \\
+  The kernel matrix corresponding to $K(x,z) $ is scaled by scalar a \\ \\ 
+  So $K(x,z)$ is Symmetric\\
+  
+  PSD: \\
+  $z^TKz$ \\
+  $ = z^T(aK_1)z$ \\
+  $ = az^TK_1z$ \\
+  $\geq 0$   Because a is positive real number $a \in R^+$  and $ z^TK_1z \geq 0$ is valid kernel\\ \\
+  
+ Since  $K(x,z) = aK_1(x,z) $ is Symmetric and PSD it is necessarily a kernel
+
+  % ### END CODE HERE ###
+% <SCPD_SUBMISSION_TAG>_1c
+\clearpage
+
+\LARGE
+1.d
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1d
+  % ### START CODE HERE ###
+  As given in the problem set any kernel to be necessarily a kernel it should be symmetric and positive semidefinte.\\ 
+  For $K(x,z) = -aK_1(x,z) $ \\ \\
+  Lets evalute symmetric nature for K: \\
+  It is given in the problem set that $K_1$ is valid kernel. \\
+  It is also given in the problem set that a is scalar. \\
+  The kernel matrix corresponding to $K(x,z) $ is scaled by scalar a \\ \\ 
+  So $K(x,z)$ is Symmetric\\
+  
+  PSD: \\
+  $z^TKz$ \\
+  $ = z^T(-aK_1)z$ \\
+  $ = -az^TK_1z$ \\
+ Not a PSD because a is positive real number $a \in R^+$  \\ \\
+  
+ Since  $K(x,z) = -aK_1(x,z) $ is Symmetric but not PSD it is not necessarily a kernel.
+  % ### END CODE HERE ###
+% <SCPD_SUBMISSION_TAG>_1d
+\clearpage
+
+\LARGE
+1.e
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1e
+  % ### START CODE HERE ###
+  As given in the problem set any kernel to be necessarily a kernel it should be symmetric and positive semidefinte.\\ 
+  For $K(x,z) =K_1(x,z)K_2(x,z) $ \\ \\
+  Lets evalute symmetric nature for K: \\
+  It is given in the problem set that $K_1$ and $K_2$ are valid kernels. \\
+  So $K(x,z)$ is Symmetric because of commutative property\\
+  
+  PSD: \\
+  $K(x,z) =K_1(x,z)K_2(x,z) $ \\
+  $K(x,z) = \displaystyle \sum_i \phi_{i}^{(1)}(x) \phi_{i}^{(1)}(z) \displaystyle \sum_j \phi_{j}^{(2)}(x) \phi_{j}^{(2)}(z) $\\
+  $K(x,z) = \displaystyle \sum_i  \displaystyle \sum_j \phi_{i}^{(1)}(x) \phi_{i}^{(1)}(z) \phi_{j}^{(2)}(x) \phi_{j}^{(2)}(z) $\\
+  $K(x,z) = \displaystyle \sum_i  \displaystyle \sum_j [\phi_{i}^{(1)}(x) \phi_{j}^{(2)}(x)] [\phi_{i}^{(1)}(z) \phi_{j}^{(2)}(z)] $\\ \\
+ def $\psi(.) =  \phi^{(1)}(.) \phi^{(2)}(.)$ \\  So we have \\
+ 
+ $K(x,z) = \displaystyle \sum_i  \displaystyle \sum_j \psi_{i,j}(x) \psi_{i,j}(z) $\\ \\
+ $K(x,z) = \psi(x)^{T} \psi(z) $\\ \\
+ Now lets replace \\
+ $z^TKz $\\ $=  z^t \psi(x)^{T} \psi(z)z$ \\
+ $ =  \geq 0 $ so a PSD \\
+ Since  $K(x,z) =K_1(x,z)K_2(x,z) $ is Symmetric and PSD it is necessarily a kernel.
+  % ### END CODE HERE ###
+% <SCPD_SUBMISSION_TAG>_1e
+\clearpage
+
+\LARGE
+1.f
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1f
+  % ### START CODE HERE ###
+    As given in the problem set any kernel to be necessarily a kernel it should be symmetric and positive semidefinte.\\
+  For $K(x,z) =f(x)f(z) $ \\ \\
+  Lets evalute symmetric nature for K: \\
+  It is given in the problem set that f is real valued function \\ 
+  So $K(x,z)$ is Symmetric because scalar multiplication is commutiative \\
+  
+  PSD: \\
+  Let f(x) = $ \psi (x)$ as in 1.e \\
+  So $K(x,z) =f(x)f(z)$ is PSD as per 1.e  \\
+
+  Since $K(x,z) =f(x)f(z) $ is Symmetric and PSD it is necessarily a kernel.
+
+  % ### END CODE HERE ###
+% <SCPD_SUBMISSION_TAG>_1f
+\clearpage
+
+\LARGE
+1.g
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1g
+  % ### START CODE HERE ###
+    As given in the problem set any kernel to be necessarily a kernel it should be symmetric and positive semidefinte.\\
+  For $K(x,z) =K_3(\phi(x), \phi(z))$ \\ \\
+  Lets evalute symmetric nature for K: \\
+  It is given in the problem set that $K_3$ is a Kernel \\
+  So $K(x,z)$ is Symmetric because by definition of $K_3$ \\
+  
+  PSD: \\
+  $z^TKz $\\ = $z^TK_3z $ \\
+  $ =  \geq 0 $ so a PSD
+
+  Since $K(x,z) =K3(\phi(x), \phi(z))$ is Symmetric and PSD it is necessarily a kernel. \\
+  Also $K_3$ is valid kernel for any finite set $\{x^{(1)},...,x^{(n)}\}$ This also includes  $\{\phi(x^{(1)}),...,\phi(x^{(n)})\}$ so K is necessarily a kernel. \\
+
+  % ### END CODE HERE ###
+% <SCPD_SUBMISSION_TAG>_1g
+\clearpage
+
+\LARGE
+1.h
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1h
+  % ### START CODE HERE ###
+    As given in the problem set any kernel to be necessarily a kernel it should be symmetric and positive semidefinte.\\
+  For $K(x,z) =p(K1(x,z))$ \\ \\
+  Lets evalute symmetric nature for K: \\
+  It is given in the problem set that p is a polynomial over x with postive coefficients \\
+  Let p(x) = $ \sum_i a_ix^i $ \\
+  So if we expand for $p(K1)$ we will get terms from 1.a, 1.c, 1.e 1.f which are all symmetric \\
+  So $K(x,z)$ is symmetric \\
+  
+  PSD: \\
+  $z^TKz$ \\
+  = $z^T(\sum_i a_iK_1^i)z $ \\
+  = $\sum_i a_iz^TK_1^i z $ \\
+  Here $a_i$ are postive coefficients and from 1.e we can conclude that  $\sum_i a_iz^TK_1^i z $  will be $  \geq 0 $ \\ 
+  Hence a PSD \\ 
+  Since $K(x,z) =p(K1(x,z))$ is Symmetric and PSD it is necessarily a kernel. \\
+  So any polynomial of kernel $K_1$ will also be a kernel
+
+  % ### END CODE HERE ###
+% <SCPD_SUBMISSION_TAG>_1h
+\clearpage
+
+% <SCPD_SUBMISSION_TAG>_entire_submission
+
+\end{document}

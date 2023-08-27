@@ -1,0 +1,458 @@
+% This contents of this file will be inserted into the _Solutions version of the
+% output tex document.  Here's an example:
+
+% If assignment with subquestion (1.a) requires a written response, you will
+% find the following flag within this document: <SCPD_SUBMISSION_TAG>_1a
+% In this example, you would insert the LaTeX for your solution to (1.a) between
+% the <SCPD_SUBMISSION_TAG>_1a flags.  If you also constrain your answer between the
+% START_CODE_HERE and END_CODE_HERE flags, your LaTeX will be styled as a
+% solution within the final document.
+
+% Please do not use the '<SCPD_SUBMISSION_TAG>' character anywhere within your code.  As expected,
+% that will confuse the regular expressions we use to identify your solution.
+\def\assignmentnum{2 }
+\def\assignmenttitle{XCS229i Problem Set \assignmentnum}
+\input{macros}
+\begin{document}
+\pagestyle{myheadings} \markboth{}{\assignmenttitle}
+
+% <SCPD_SUBMISSION_TAG>_entire_submission
+
+This handout includes space for every question that requires a written response.
+Please feel free to use it to handwrite your solutions (legibly, please).  If
+you choose to typeset your solutions, the |README.md| for this assignment includes
+instructions to regenerate this handout with your typeset \LaTeX{} solutions.
+\ruleskip
+
+\LARGE
+1.a
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1a
+\begin{answer}
+  Since $g'(z) = g(z)(1-g(z))$ and $h(x) = g(\theta^T x)$, it follows that $\partial h(x) / \partial \theta_k = h(x)(1 - h(x)) x_k$.
+
+  Letting $h_{\theta}(x^{(i)}) = g(\theta^T x^{(i)})
+  = 1/(1 + \exp(-\theta^T x^{(i)}))$, we have\\
+
+  \begin{flalign*}
+    \frac{\partial\log h_{\theta}(x^{(i)})}{\partial\theta_k} &= \\
+    % ### START CODE HERE ###
+    \frac{1}{h_{\theta}(x^{(i)})} \frac{\partial h_{\theta}(x^{(i)})}{\partial\theta_k} &= \\
+     \frac{1}{h_{\theta}(x^{(i)})} h_{\theta}(x^{(i)})(1-h_{\theta}(x^{(i)}))x_k &= \\
+     (1-h_{\theta}(x^{(i)}))x_k &= \\
+     \\
+    % ### END CODE HERE ###
+    \frac{\partial\log(1 - h_{\theta}(x^{(i)}))}{\partial\theta_k} &= \\
+    % ### START CODE HERE ###
+        \frac{1}{1 - h_{\theta}(x^{(i)})} \frac{\partial (1 - h_{\theta}(x^{(i)}))}{\partial\theta_k} &= \\
+     (-h_{\theta}(x^{(i)}))x_k &= \\
+     \\
+    % ### END CODE HERE ###
+  \end{flalign*}
+
+  Substituting into our equation for $J(\theta)$, we have
+  %
+  \begin{flalign*}
+    \frac{\partial J(\theta)}{\partial\theta_k} &=\\
+    % ### START CODE HERE ###
+    -\frac{1}{\nexp}\sum_{i=1}^{\nexp} ( y^{(i)} x_k(1-h_{\theta}(x^{(i)})) + (1-y^{(i)}) (-h_{\theta}(x^{(i)}))x^{(i)}_k &= \\
+    -\frac{1}{\nexp}\sum_{i=1}^{\nexp} ( y^{(i)} -h_{\theta}(x^{(i)}))x^{(i)}_k
+    % ### END CODE HERE ###
+  \end{flalign*}
+  
+  Consequently, the $(k, l)$ entry of the Hessian is given by
+  
+  \begin{flalign*}
+    H_{kl} = \frac{\partial^2 J(\theta)}{\partial\theta_k\partial\theta_l} &=\\
+    % ### START CODE HERE ###
+    -\frac{1}{\nexp}\sum_{i=1}^{\nexp} \frac{\partial}{\partial\theta_l}( y^{(i)} -h_{\theta}(x^{(i)}))x^{(i)}_k &= \\
+    \frac{1}{\nexp}\sum_{i=1}^{\nexp}  h_{\theta}(x^{(i)}) (1 -h_{\theta}(x^{(i)})) x^{(i)}_k x^{(i)}_l) &= \\
+    % ### END CODE HERE ###
+  \end{flalign*}
+  
+  Using the fact that $X_{ij} = x_i x_j$ if and only if $X = xx^T$, we have
+  
+  \begin{flalign*}
+    H &= \\
+    % ### START CODE HERE ###
+        \frac{1}{\nexp}\sum_{i=1}^{\nexp}  h(x^{(i)}) (1 -h(x^{(i)}))) x^{(i)} x^{(i)T} &= \\
+    % ### END CODE HERE ###
+  \end{flalign*}
+
+  To prove that $H$ is positive semi-definite, show $z^T Hz \ge 0$ for all $z\in\Re^\di$.
+  
+  \begin{flalign*}
+    z^T H z &=\\
+    % ### START CODE HERE ###
+    z^T (\frac{1}{\nexp}\sum_{i=1}^{\nexp}  h(x^{(i)}) (1 -h(x^{(i)})))x^{(i)} x^{(i)T} ) z &= \\
+    \frac{1}{\nexp}\sum_{i=1}^{\nexp}  h(x^{(i)}) (1 -h(x^{(i)}))z^Tx^{(i)} x^{(i)T} z &= \\
+    \frac{1}{\nexp}\sum_{i=1}^{\nexp} h(x^{(i)}) (1 -h(x^{(i)})) (x^T z)^2  &= \\
+    % ### END CODE HERE ###
+  \end{flalign*}
+  
+  % ### START CODE HERE ###\texttt{\texttt{•}}
+ Now we know that \\
+  $ h(x^{(i)}) (1 -h(x^{(i)})) \in [1, 0] $ \\
+  Also  more generally it is clear that \\
+  $ (x^Tz )^2 \geqslant 0 $ \\ 
+  Hence for any vector z, it holds true that
+  $z^THz \geqslant 0 $
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_1a
+\clearpage
+
+\LARGE
+1.c
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1c
+\begin{answer}
+  For shorthand, we let $\mc{H} = \{\phi, \Sigma, \mu_{0}, \mu_1\}$ denote
+  the parameters for the problem.
+  Since the given formulae are conditioned on $y$, use Bayes rule to get:
+  \begin{align*}
+    p(y =1\vert  x ; \mc{H}) &= \frac {p(x\vert y=1; \mc{H}) p(y=1; \mc{H})} {p(x; \mc{H})}\\
+    & = \frac {p(x\vert y=1; \mc{H}) p(y=1; \mc{H})}
+      {p(x\vert y=1; \mc{H}) p(y=1; \mc{H}) + p(x\vert y={0}; \mc{H}) p(y={0};
+      \mc{H})}\\
+    &\\
+    % ### START CODE HERE ###
+    &= \frac { \frac{1}{(2\pi)^{\di/2} \Sigma^{1/2}}\exp\left(-\frac{1}{2} (x-\mu_1)^T \Sigma^{-1} (x-\mu_1) \right) (\phi) }
+      {\frac{1}{(2\pi)^{\di/2} \Sigma^{1/2}}\exp\left(-\frac{1}{2} (x-\mu_1)^T \Sigma^{-1} (x-\mu_1) \right) (\phi)  + \frac{1}{(2\pi)^{\di/2} \Sigma^{1/2}}\exp\left(-\frac{1}{2} (x-\mu_0)^T \Sigma^{-1} (x-\mu_0) \right) (1- \phi) }\\
+    &\\ 
+    &= \frac { (\phi) \exp\left(-\frac{1}{2} (x-\mu_1)^T \Sigma^{-1} (x-\mu_1) \right)  }
+      { (\phi) \exp\left(-\frac{1}{2} (x-\mu_1)^T \Sigma^{-1} (x-\mu_1) \right) + (1- \phi)exp\left(-\frac{1}{2} (x-\mu_0)^T \Sigma^{-1} (x-\mu_0) \right)  }\\
+    &\\ 
+    &= \frac { 1 }
+      { 1 + \frac{(1- \phi)exp\left(-\frac{1}{2} (x-\mu_0)^T \Sigma^{-1} (x-\mu_0) \right)}{(\phi) \exp\left(-\frac{1}{2} (x-\mu_1)^T \Sigma^{-1} (x-\mu_1) \right) } }\\
+    &\\ 
+    &= \frac { 1 }
+      { 1 + \exp( \log(\frac{1-\phi}{\phi}) \left(-\frac{1}{2} (x-\mu_0)^T \Sigma^{-1} (x-\mu_0) \right) + \left(-\frac{1}{2} (x-\mu_1)^T \Sigma^{-1} (x-\mu_1) \right)  )}\\
+    &\\
+    &= \frac { 1 }
+      { 1 + \exp( \log(\frac{1-\phi}{\phi}) -\frac{1}{2} (x^T \Sigma^{-1} x -2 x^T\Sigma^{-1}\mu_0+ \mu_0^T \Sigma^{-1} \mu_0) + \frac{1}{2} (x^T \Sigma^{-1} x -2 x^T\Sigma^{-1}\mu_1+ \mu_1^T \Sigma^{-1} \mu_1       )}\\
+    &\\ 
+&= \frac { 1 }
+      { 1 + \exp( \log(\frac{1-\phi}{\phi}) + x^T \Sigma^{-1} \mu_0 - x^T \Sigma^{-1} \mu_1 -\frac{1}{2} \mu_0^T \Sigma^{-1} \mu_0  + \frac{1}{2} \mu_1^T \Sigma^{-1} \mu_1}\\
+    &\\ 
+    &= \frac { 1 }
+      { 1 + \exp( \log(\frac{1-\phi}{\phi}) + x^T \Sigma^{-1} (\mu_0 -  \mu_1) -\frac{1}{2} \mu_0^T \Sigma^{-1} \mu_0  + \frac{1}{2} \mu_1^T \Sigma^{-1} \mu_1}\\
+    &\\ 
+    & Let \theta = \Sigma^{-1} (\mu_1 -  \mu_0) &\\ 
+    & Let \theta_0 =  \frac{1}{2}(\mu_0^T \Sigma^{-1}  \mu_0  - \mu_1^T  \Sigma^{-1} \mu_1) + \log(\frac{1-\phi}{\phi})&\\ 
+    & p(y =1\vert  x ; \mc{H}) = \frac { 1 }    { 1 + \exp(-(\theta^Tx + \theta_0))}
+    &\\ 
+    % ### END CODE HERE ###
+  \end{align*}
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_1c
+\clearpage
+
+\LARGE
+1.d
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1d
+\begin{answer}
+  First, derive the expression for the log-likelihood of the training data:
+  \begin{flalign*}
+    \ell(\phi, \mu_{0}, \mu_1, \Sigma) &= \log \prod_{i=1}^\nexp p(x^{(i)} \vert  y^{(i)}; \mu_{0}, \mu_1, \Sigma) p(y^{(i)}; \phi)\\
+    &= \sum_{i=1}^{\nexp} \log p(x^{(i)} \vert  y^{(i)}; \mu_{0}, \mu_1, \Sigma) +
+    \sum_{i=1}^{n} \log p(y^{(i)}; \phi)\\
+    &\\
+    % ### START CODE HERE ###
+    &= \sum_{i=1}^{\nexp} [\log \frac{1}{(2\pi)^{\di/2} \vert \Sigma\vert^{1/2}}-\frac{1}{2} (x^{(i)}-\mu_{y^{(i)}} )^T \Sigma^{-1} (x^{(i)}-\mu_{y^{(i)}} ) +
+    \log\phi^{y^{(i)}} +\log(1-\phi)^{(1- y^{(i)})}]\\
+    &\\
+    &= \sum_{i=1}^{\nexp}  [-\frac{n}{2}\log(2\pi) -\frac{1}{2}\log\vert \Sigma\vert -\frac{1}{2} (x^{(i)}-\mu_{y^{(i)}} )^T \Sigma^{-1} (x^{(i)}-\mu_{y^{(i)}} ) +y^{(i)}\log\phi + (1- y^{(i)})\log(1-\phi)]
+     \\
+    &\\
+    \textrm{removing constant terms}
+    &= \sum_{i=1}^{\nexp} [-\frac{1}{2}\log\vert \Sigma\vert -\frac{1}{2} (x^{(i)}-\mu_{y^{(i)}} )^T \Sigma^{-1} (x^{(i)}-\mu_{y^{(i)}} ) +y^{(i)}\log\phi + (1- y^{(i)})\log(1-\phi)]
+     \\
+    &\\
+    % ### END CODE HERE ###
+  \end{flalign*}
+
+  Now, the likelihood is maximized by setting the derivative (or gradient) with respect to each of the parameters to zero.\\
+
+  \textbf{For $\mathbf{\phi}$:}
+
+  \begin{flalign*}
+    \frac{\partial \ell}{\partial \phi}&=\\
+    % ### START CODE HERE ###
+    &0 = \sum_{i=1}^{\nexp} (\frac{y^{(i)}}{\phi} - \frac{(1- y^{(i)}}{(1-\phi)})    \\
+    &\\
+    & \sum_{i=1}^{\nexp} (\frac{y^{(i)}}{\phi})  = \sum_{i=1}^{\nexp} \frac{(1- y^{(i)}}{(1-\phi)})    \\
+    &\\
+    & \sum_{i=1}^{\nexp} y^{(i)} (1-\phi) = \sum_{i=1}^{\nexp} \phi (1- y^{(i)})    \\
+    &\\
+    & \phi = \frac{1}{n}\sum_{i=1}^{\nexp} 1 \{y^{(i)} = 1\}   \\
+    &\\
+    % ### END CODE HERE ###
+  \end{flalign*}
+
+  Setting this equal to zero and solving for $\phi$ gives the maximum
+  likelihood estimate.\\
+
+  \textbf{For $\mathbf{\mu_0}$:}
+
+  {\bf Hint:}  Remember that $\Sigma$ (and thus $\Sigma^{-1}$) is symmetric.
+
+  \begin{flalign*}
+    \nabla_{\mu_{0}}\ell &=\\
+    % ### START CODE HERE ###
+    &= -\frac{1}{2}\sum_{y^{(i)}=0}^{} \nabla_{\mu_{0}} [(x^{(i)}-\mu_{0} )^T \Sigma^{-1} (x^{(i)}-\mu_{0} )]
+     \\
+    &\\
+    &= -\frac{1}{2}\sum_{y^{(i)}=0}^{} \nabla_{\mu_{0}} [(x^{(i)T}\Sigma^{-1}x^{(i)} + \mu_{0}^T\Sigma^{-1}\mu_{0}  -2 \mu_{0}^T\Sigma^{-1}x^{(i)}]
+     \\
+    &\\
+    &= -\frac{1}{2}\sum_{y^{(i)}=0}^{} \nabla_{\mu_{0}} [ \mu_{0}^T\Sigma^{-1}\mu_{0}  -2 \mu_{0}^T\Sigma^{-1}x^{(i)}]
+     \\
+    &\\
+    &= -\frac{1}{2}\sum_{y^{(i)}=0}^{} [2 \Sigma^{-1}\mu_{0}  -2 \Sigma^{-1}x^{(i)}] = 0
+     \\
+    &\\
+    &\\
+    &0 = \sum_{y^{(i)}=0}^{} [\Sigma^{-1}x^{(i)} - \Sigma^{-1}\mu_{0} ]
+     \\
+    &\\
+    & \Sigma^{-1}\mu_{0} \sum_{i=1}^{n}1\{ y^{(i)} = 0\} = \Sigma^{-1}\sum_{i=1}^{n}1\{ y^{(i)} = 0\} x^{(i)} 
+     \\
+    &\\
+    &\\
+    & \mu_{0} = \frac{\sum_{i=1}^{n}1\{ y^{(i)} = 0\} x^{(i)} }{\sum_{i=1}^{n}1\{ y^{(i)} = 0\}}
+     \\
+    &\\
+    % ### END CODE HERE ###
+  \end{flalign*}
+
+  Setting this gradient to zero gives the maximum likelihood estimate
+  for $\mu_{0}$.\\
+
+  \textbf{For $\mathbf{\mu_1}$:}
+
+  {\bf Hint:}  Remember that $\Sigma$ (and thus $\Sigma^{-1}$) is symmetric.
+
+  \begin{flalign*}
+    \nabla_{\mu_{1}}\ell &=\\
+    % ### START CODE HERE ###
+        &= -\frac{1}{2}\sum_{y^{(i)}=1}^{} \nabla_{\mu_{1}} [(x^{(i)}-\mu_{1} )^T \Sigma^{-1} (x^{(i)}-\mu_{1} )]
+     \\
+    &\\
+    &= -\frac{1}{2}\sum_{y^{(i)}=1}^{} \nabla_{\mu_{1}} [(x^{(i)T}\Sigma^{-1}x^{(i)} + \mu_{1}^T\Sigma^{-1}\mu_{1}  -2 \mu_{1}^T\Sigma^{-1}x^{(i)}]
+     \\
+    &\\
+    &= -\frac{1}{2}\sum_{y^{(i)}=1}^{} \nabla_{\mu_{1}} [ \mu_{1}^T\Sigma^{-1}\mu_{1}  -2 \mu_{1}^T\Sigma^{-1}x^{(i)}]
+     \\
+    &\\
+    &= -\frac{1}{2}\sum_{y^{(i)}=1}^{} [2 \Sigma^{-1}\mu_{1}  -2 \Sigma^{-1}x^{(i)}] = 0
+     \\
+    &\\
+    &\\
+    &0 = \sum_{y^{(i)}=1}^{} [\Sigma^{-1}x^{(i)} - \Sigma^{-1}\mu_{1} ]
+     \\
+    &\\
+    & \Sigma^{-1}\mu_{1} \sum_{i=1}^{n}1\{ y^{(i)} = 0\} = \Sigma^{-1}\sum_{i=1}^{n}1\{ y^{(i)} = 0\} x^{(i)} 
+     \\
+    &\\
+    &\\
+    & \mu_{1} = \frac{\sum_{i=1}^{n}1\{ y^{(i)} = 1\} x^{(i)} }{\sum_{i=1}^{n}1\{ y^{(i)} = 1\}}
+     \\
+    % ### END CODE HERE ###
+  \end{flalign*}
+
+  Setting this gradient to zero gives the maximum likelihood estimate
+  for $\mu_{1}$.\\
+
+  For $\Sigma$, we find the gradient with respect to $S = \Sigma^{-1}$ rather than $\Sigma$ just to simplify the derivation (note that $\vert S\vert  = \frac{1}{\vert \Sigma\vert }$).
+  You should convince yourself that the maximum likelihood estimate $S_\nexp$ found in this way would correspond to the actual maximum likelihood estimate $\Sigma_\nexp$ as $S_\nexp^{-1} = \Sigma_\nexp$.
+
+  {\bf Hint:}  You may need the following identities: 
+  \begin{equation*}
+    \nabla_S \vert S\vert  = \vert S\vert  (S^{-1})^T
+  \end{equation*}
+  \begin{equation*}
+    \nabla_S b_i^T S b_i = \nabla_S tr \left( b_i^T S b_i \right) =
+    \nabla_S tr \left( S b_i b_i^T \right) = b_i b_i^T
+  \end{equation*}
+
+  \begin{flalign*}
+    \nabla_S\ell &=\\
+    % ### START CODE HERE ###
+     &= -\frac{1}{2} \sum_{i=1}^{\nexp} \nabla_S [-\log\vert S\vert + (x^{(i)}-\mu_{y^{(i)}} )^T S (x^{(i)}-\mu_{y^{(i)}} )]
+     \\
+    &\\
+    &= -\frac{1}{2} \sum_{i=1}^{\nexp} [- S^{-1} + (x^{(i)}-\mu_{y^{(i)}} ) (x^{(i)}-\mu_{y^{(i)}} )^T ]
+     \\
+    &\\
+    &=  \sum_{i=1}^{\nexp} \frac{1}{2} \Sigma -\frac{1}{2} \sum_{i=1}^{\nexp} [(x^{(i)}-\mu_{y^{(i)}} ) (x^{(i)}-\mu_{y^{(i)}} )^T]
+     \\
+    &\\
+    &0 =  \sum_{i=1}^{\nexp} \frac{1}{2} \Sigma -\frac{1}{2} \sum_{i=1}^{\nexp} [(x^{(i)}-\mu_{y^{(i)}} ) (x^{(i)}-\mu_{y^{(i)}} )^T]
+     \\
+    &\\
+    &\Sigma  =  \frac{1}{n}\sum_{i=1}^{\nexp} (x^{(i)}-\mu_{y^{(i)}} ) (x^{(i)}-\mu_{y^{(i)}} )^T 
+     \\
+    &\\
+  % ### END CODE HERE ###
+  \end{flalign*}
+
+  Next, substitute $\Sigma = S^{-1}$.  Setting this gradient to zero gives the required maximum likelihood estimate for $\Sigma$.\\
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_1d
+\clearpage
+
+\LARGE
+1.f
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1f
+\begin{answer}
+  % ### START CODE HERE ###
+  For Dataset 1 \\
+  LR Accuracy obtained was 0.83 \\
+  GDA Accuracy obtained was 0.81 \\
+  It can be seen that Logistic regression performed better than GDA for Dataset 1 \\ 
+  Also looking at the shape of the data points we can see that it doesn’t follow Gaussian distribution and it would perform worse as demonstrated above. \\
+  
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_1f
+\clearpage
+
+\LARGE
+1.g
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1g
+\begin{answer}
+  % ### START CODE HERE ###
+  (From pervious answer 1.h) \\
+  For Dataset 1 \\
+  LR Accuracy obtained was 0.83 \\
+  GDA Accuracy obtained was 0.81 \\
+  It can be seen that Logistic regression performed better than GDA for Dataset 1 \\ 
+  Also looking at the shape of the data points we can see that it doesn’t follow Gaussian distribution and it would perform worse as demonstrated above. \\
+
+(After running test case 1g-0-basic) \\
+For Dataset 2 \\
+  LR Accuracy obtained was 0.86 \\
+  GDA Accuracy obtained was 0.86 \\
+  It can be seen clearly that GDA performed worst than Logistic regression on Dataset1 (as against to Dataset2)\\
+  Looking at the shape of data points in Dataset2 it appears that data is more normally distributed and hence GDA did not perform worst then LR.
+  
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_1g
+\clearpage
+
+\LARGE
+1.h
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_1h
+\begin{answer}
+  % ### START CODE HERE ###
+  There can be various transformation that can be applied on Dataset1 so that GDA will perform better. \\
+  Some sample transformation to make data more gaussian like \\
+  1. Log transformation \\
+  2. Square root transformation\\
+  3. Box-Cox transformation \\
+  4. Yeo-Johnson transformation \\
+  Since data set contains negative values Yeo Johnson transformation will improve performance of GDA.
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_1h
+\clearpage
+
+\LARGE
+2.a
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2a
+\begin{answer}
+  % ### START CODE HERE ###
+  Lets start with poisson distribution parameterized by $\lambda$ \\
+  $ p(y; \lambda) = \frac{e^{-\lambda}\lambda^y}{y!} $ \\
+  $ p(y; \lambda) = \exp(\log(\frac{e^{-\lambda}\lambda^y}{y!})) $ \\
+  $ p(y; \lambda) = \frac{1}{y!} \exp(y \log\lambda -\lambda )$ \\ \\
+  This can be written in exponential family as $ b(y) \exp(\eta^TT(y)-a(\eta)) $ \\ \\
+  So values of various terms will be \\ \\  $b(y) = \frac{1}{y!} $ \\
+  $T(y) = y $ \\
+  $ \eta = \log\lambda$ \\
+  $ a(\eta) = e^\eta =\lambda$ \\
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2a
+\clearpage
+
+\LARGE
+2.b
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2b
+\begin{answer}
+  % ### START CODE HERE ###
+ $  g(\eta) = E[y;\eta] $ \\ 
+ $  g(\eta) = \lambda $ \\ 
+ $  g(\eta) = e^\eta $ \\ 
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2b
+\clearpage
+
+\LARGE
+2.c
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2c
+\begin{answer}
+  The log-likelihood of an example $(x^{(i)}, y^{(i)})$ is defined as
+  $\ell(\theta) = \log p(y^{(i)} \vert  x^{(i)}; \theta)$. To derive the stochastic
+  gradient ascent rule, use the results in part (a) and the standard GLM
+  assumption that $\eta = \theta^Tx$.
+  \begin{flalign*}
+    \frac{\partial \ell(\theta)}{\partial \theta_j}
+    &= \frac{\partial \log p(y^{(i)} \vert  x^{(i)}; \theta)}{\partial \theta_j}\\
+    &= \frac {\partial \log \left({\frac{1}{y^{(i)}!} \exp(\eta^T y^{(i)} -
+    e^\eta)}\right)} {\partial \theta_j}\\
+    &\\
+    % ### START CODE HERE ###
+    &= \frac {\partial \log \left({\frac{1}{y^{(i)}!} \exp((\theta^Tx)^T y^{(i)} -
+    e^{\theta^Tx})}\right)} {\partial \theta_j}\\
+    &\\
+    &= \frac {\partial \log \left({\frac{1}{y^{(i)}!} \exp(x^{(i)T} \theta y^{(i)} -
+    e^{x^{(i)T\theta}})}\right)} {\partial \theta_j}\\
+    &\\
+    &= \frac {\partial (- \log ({y^{(i)}!) +x^{(i)T} \theta y^{(i)} -
+    e^{x^{(i)T\theta}})} } {\partial \theta_j}\\
+    &\\
+    &=  x^{(i)T}y^{(i)} -  x^{(i)T}e^{x^{(i)T\theta}} \\
+    &\\
+    &\\
+    &=  (y^{(i)} -  e^{\theta^Tx^{(i)}})x^{(i)}_j \\
+    &\\
+    % ### END CODE HERE ###
+  \end{flalign*}
+
+  Thus the stochastic gradient ascent update rule should be:
+
+  \begin{equation*}
+  \theta_j := \theta_j + \alpha \frac{\partial \ell(\theta)}{\partial \theta_j},
+  \end{equation*}
+
+  which reduces here to:
+  % ### START CODE HERE ###
+  $\theta_j := \theta_j + \alpha (y^{(i)} -  e^{\theta^Tx^{(i)}})x^{(i)}_j $
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2c
+\clearpage
+
+% <SCPD_SUBMISSION_TAG>_entire_submission
+
+\end{document}

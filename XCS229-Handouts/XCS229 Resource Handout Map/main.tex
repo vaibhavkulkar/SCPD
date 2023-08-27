@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{setspace}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!red,
+  urlcolor=blue!50!red
+}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large{XCS229 Resource Handout Map}}
+
+  \small{Below is an outline of all concepts covered in both XCS229i ML and XCS229ii ML Strategy and Intro to RL.}
+\end{center}
+
+\vspace{-2.5mm}
+\section{Supervised Learning}
+\vspace{-2.5mm}
+\subsection{ \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Supervised\%20Learning\%20and\%20Discriminative\%20Algorithms.pdf}{Supervised Learning \& Discriminative Algorithms}}
+\vspace{-2.5mm}
+\begin{enumerate}
+  \setlength\itemsep{-0.25em}
+  \item Linear Regression
+  \item Batch/Stochastic Gradient Descent
+  \item Normal Equation
+  \item Locally Weighted Regression
+  \item Probabilistic Interpretation of Linear Regression
+  \item Logistic Regression (Further reading: \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Binary\%20Classification\%20and\%20Logistic\%20Regression.pdf}{BinaryClassification \& Logistic Regression})
+  \item Newton’s Method
+  \item Perceptron (Further reading: \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Perceptron.pdf}{Perceptron})
+  \item Logistic Regression
+  \item Exponential Family
+  \item Generalized Linear Models (GLM)
+  \item Softmax Regression
+\end{enumerate}
+\vspace{-2.5mm}
+\subsection{\href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Generative\%20Learning\%20Algorithms.pdf}{Generative Learning Algorithms}}
+\vspace{-2.5mm}
+\begin{enumerate}
+  \setlength\itemsep{-0.25em}
+  \item Gaussian Discriminant Analysis
+  \item Generative \& Discriminative Analysis
+  \item Naive Bayes
+  \item Laplace Smoothing
+  \item Event Models
+\end{enumerate}
+\vspace{-2.5mm}
+\subsection{\href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Kernels\%20and\%20Support\%20Vector\%20Machines.pdf}{Kernels and Support Vector Machines}}
+\vspace{-2.5mm}
+\begin{enumerate}
+  \setlength\itemsep{-0.25em}
+  \item Support Vector Machines (Further reading: \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Representer\%20Functions.pdf}{Representer Functions})
+  \item Kernels
+\end{enumerate}
+\vspace{-2.5mm}
+\subsection{\href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Decision\%20Trees.pdf}{Decision Trees}}
+\vspace{-2.5mm}
+\begin{enumerate}
+  \setlength\itemsep{-0.25em}
+  \item Decision Trees
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Ensemble\%20Methods.pdf}{Ensemble Methods} (Further reading: \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Boosting.pdf}{Boosting})
+\end{enumerate}
+\vspace{-2.5mm}
+\section{Unsupervised Learning}
+\vspace{-2.5mm}
+\begin{enumerate}
+  \setlength\itemsep{-0.25em}
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/K-Means\%20Clustering.pdf}{K-means Clustering}
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Mixture\%20of\%20Gaussians.pdf}{Mixture of Gaussians}
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Expectation\%20Maximization\%20Algorithm.pdf}{Expectation Maximization (EM) Algorithm}
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Factor\%20Analysis.pdf}{Factor Analysis}
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Independent\%20Component\%20Analysis.pdf}{Independent Component Analysis (Further reading: \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Principal\%20Component\%20Analysis.pdf}{Principal Component Analysis})}
+\end{enumerate}
+\vspace{-2.5mm}
+\section{\href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Deep\%20Learning.pdf}{Deep Learning (Neural Networks)}}
+\vspace{-2.5mm}
+\begin{enumerate}
+  \setlength\itemsep{-0.25em}
+  \item Backpropagation (Further reading: \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Backpropagation.pdf}{Supplemental notes on backpropagation})
+  \item Activation Functions
+  \item Vanishing and Exploding Gradients
+  \item Initialization Schemes
+\end{enumerate}
+\vspace{-2.5mm}
+\section{\href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Learning\%20Theory.pdf}{Machine Learning Theory}}
+\vspace{-2.5mm}
+\begin{enumerate}
+  \setlength\itemsep{-0.25em}
+  \item Bias/Variance Tradeoff (Further reading: \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Bias-Variance.pdf}{Bias Variance Calculations})
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Error\%20Analysis.pdf}{Error Analysis}
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Regularization\%20and\%20Model\%20Selection.pdf}{Regularization and Model Selection}
+\end{enumerate}
+\vspace{-2.5mm}
+\section{Reinforcement Learning}
+\vspace{-2.5mm}
+\begin{enumerate}
+  \setlength\itemsep{-0.25em}
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/Reinforcement\%20Learning\%20and\%20Control.pdf}{Reinforcement Learning and Control}
+  \item \href{https://github.com/scpd-proed/XCS229-Handouts/blob/main/LQR\%2C\%20DDP\%2C\%20and\%20LQG.pdf}{LQR, DDP, and LQG}
+\end{enumerate}
+\end{document}
